@@ -25,3 +25,17 @@ Designed to decouple personal care product development from legacy, proprietary 
 
 ```bash
 npm install @cosmetic/core
+```
+
+```typescript
+import { calculateBOM, RegulatoryScreener } from '@cosmetic/core';
+
+// 1. Calculate Formulation Matrix & BOM
+const result = calculateBOM(formula, 100);
+console.log(`Matrix Balanced: ${result.isBalanced}`);
+
+// 2. Offline Regulatory Screening
+const screener = new RegulatoryScreener(builtinRules);
+const findings = screener.screen(formula);
+console.log(`Active Compliance Flags: ${findings.length}`);
+```
